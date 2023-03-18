@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ManagerOrder</title>
+
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/dataTables.bootstrap.js"></script>
+    <script src="../js/jquery.dataTables.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/dataTables.bootstrap.css" rel="stylesheet">
+</head>
+<body background="../img/background.jpg" style="background-size: cover">
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top" style="color: #55acee">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" aria-controls="navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Training College</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">首页</a> </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="managerSta.html">经理名:</a> </li>
+                    <li><a href="main.html">退出登陆</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="navbar navbar-default navbar-fixed" style="width: 150px;top: 50px;background: transparent;border: transparent;position: fixed">
+    <ul class="nav nav-pills nav-stacked" style="margin-top: 50px;">
+        <li><a href="managerSta.html"><h5 style="padding-left: 15px">统计信息</h5></a> </li>
+        <li><a href="approval.html"><h5 style="padding-left: 15px">审批管理</h5></a> </li>
+        <li class="active"><a href="managerOrder.html"><h5 style="padding-left: 15px">订单管理</h5></a> </li>
+    </ul>
+</div>
+
+<fieldset style="position:absolute;top:100px;left:200px;width: 900px;height: 620px">
+    <legend>未结算订单</legend>
+    <table class="table dataTable">
+        <thead style="background-color: rgba(190, 188, 198, 0.67)">
+        <tr>
+            <th>订单编号</th>
+            <th>机构编号</th>
+            <th>机构名称</th>
+            <th>学员邮箱</th>
+            <th>价格</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+    </table>
+
+    <br>
+
+    <legend style="margin-top: 40px">已结算订单</legend>
+    <table class="table dataTable">
+        <thead style="background-color: rgba(190, 188, 198, 0.67)">
+        <tr>
+            <th>订单编号</th>
+            <th>机构编号</th>
+            <th>机构名称</th>
+            <th>学员邮箱</th>
+            <th>价格</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+
+    </table>
+</fieldset>
+
+
+</body>
+</html>

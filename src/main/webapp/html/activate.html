@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Activate</title>
+
+    <script src="../js/jquery-3.1.1.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.dataTables.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body background="../img/background.jpg" style="background-size: cover">
+
+<div style="position:absolute;top: 25%;left: 25%;background-color: rgba(151,160,179,0.34);height: 360px;width: 600px" align="center">
+    <h1 style="color: #25ff2f"><span class="glyphicon glyphicon-ok-circle"></span> 注册成功!</h1>
+    <br>
+    <h3>请点击以下邮箱链接前去激活！</h3>
+    <br>
+    <h4>
+        <a onclick="setMail()">wuchengwu5x5@sina.com</a>
+    </h4>
+
+</div>
+
+<script>
+    var hash={
+        'qq.com':'http://mail.qq.com',
+        'gmail.com': 'http://mail.google.com',
+        'sina.com': 'http://mail.sina.com.cn',
+        '163.com': 'http://mail.163.com',
+        '126.com': 'http://mail.126.com',
+        'yeah.net': 'http://www.yeah.net/',
+        'sohu.com': 'http://mail.sohu.com/',
+        'tom.com': 'http://mail.tom.com/',
+        'sogou.com': 'http://mail.sogou.com/',
+        '139.com': 'http://mail.10086.cn/',
+        'hotmail.com': 'http://www.hotmail.com',
+        'live.com': 'http://login.live.com/',
+        'live.cn': 'http://login.live.cn/',
+        'live.com.cn': 'http://login.live.com.cn',
+        '189.com': 'http://webmail16.189.cn/webmail/',
+        'yahoo.com.cn': 'http://mail.cn.yahoo.com/',
+        'yahoo.cn': 'http://mail.cn.yahoo.com/',
+        'eyou.com': 'http://www.eyou.com/',
+        '21cn.com': 'http://mail.21cn.com/',
+        '188.com': 'http://www.188.com/',
+        'foxmail.coom': 'http://www.foxmail.com'
+    };
+
+    function setMail() {
+        var mail = "wuchengwu5x5@sina.com";
+        var url = mail.split('@')[1];
+        var set = 0;
+        $.each(hash, function (i, n) {
+            if(i==url){
+                $("#link").attr("href", n);
+                set = 1;
+            }
+        })
+        if(set!=1){
+            alert("邮箱无法找到!");
+        }
+
+    }
+</script>
+
+</body>
+</html>

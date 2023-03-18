@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.i18n.encoding" value="utf-8"></constant>
+    <constant name="struts.devMode" value="false"/>
+
+    <include file="struts-default.xml"/>
+
+    <package name="struts2" namespace="/" extends="struts-default">
+
+        <!--MainAction-->
+        <action name="main" class="action.MainAction">
+            <result name="main">/jsp/main.jsp</result>
+        </action>
+
+        <!--UserRegisterAction-->
+        <action name="register" class="action.UserRegisterAction" method="register">
+            <result name="register">/jsp/activate.jsp</result>
+            <result name="fail">/jsp/main.jsp</result>
+        </action>
+        <action name="activate" class="action.UserRegisterAction" method="activate">
+            <result name="activate">/jsp/success.jsp</result>
+        </action>
+
+        <!--InstitutionRegister-->
+        <action name="instRegister" class="action.InstitutionRegisterAction" method="instRegister">
+            <result name="success">/jsp/main.jsp</result>
+        </action>
+
+        <!--LoginAction-->
+        <action name="stuLogin" class="action.LoginAction" method="studentLogin">
+            <result name="student" type="redirectAction">instSearch.action</result>
+            <result name="fail">/jsp/main.jsp</result>
+        </action>
+
+        <action name="instLogin" class="action.LoginAction" method="institutionLogin">
+            <result name="institution" type="redirectAction">instInfo.action</result>
+            <result name="fail">/jsp/main.jsp</result>
+        </action>
+
+        <action name="managerLogin" class="action.LoginAction" method="managerLogin">
+            <result name="manager" type="redirectAction">managerSta.action</result>
+            <result name="fail">/jsp/main.jsp</result>
+        </action>
+
+        <!--StudentOrderAction-->
+        <action name="stuOrder_*" class="action.StudentOrderAction" method="{1}">
+            <result name="orders">/jsp/studentOrder.jsp</result>
+            <result name="change" type="redirectAction">stuOrder_getOrders.action</result>
+            <result name="search">/jsp/studentOrder.jsp</result>
+            <result name="fail" type="redirectAction">stuOrder_getOrders.action</result>
+        </action>
+
+
+        <!--StudentInfoAction-->
+        <action name="stuInfo_*" class="action.StudentInfoAction" method="{1}">
+            <result name="info">/jsp/studentInfo.jsp</result>
+            <result name="modify" type="redirectAction">stuInfo_studentInfo.action</result>
+            <result name="cancel" type="redirectAction">stuInfo_studentInfo.action</result>
+            <result name="convert" type="redirectAction">stuInfo_studentInfo.action</result>
+            <result name="charge" type="redirectAction">stuInfo_studentInfo.action</result>
+            <result name="fail" type="redirectAction">stuInfo_studentInfo.action</result>
+        </action>
+
+        <!--ReserveAction-->
+        <action name="instSearch" class="action.ReserveAction" method="InstitutionSearch">
+            <result name="institutions">/jsp/institutionSearch.jsp</result>
+        </action>
+        <action name="siftInst" class="action.ReserveAction" method="siftInst">
+            <result name="siftInst">/jsp/institutionSearch.jsp</result>
+        </action>
+        <action name="courseSearch" class="action.ReserveAction" method="courseSearch">
+            <result name="courses">/jsp/courseSearch.jsp</result>
+        </action>
+        <action name="siftCourse" class="action.ReserveAction" method="siftCourse">
+            <result name="siftCourse">/jsp/courseSearch.jsp</result>
+        </action>
+        <action name="getCourse" class="action.ReserveAction" method="getCourse">
+            <result name="getCourse">/jsp/reserve.jsp</result>
+        </action>
+        <action name="reserve" class="action.ReserveAction" method="reserve">
+            <result name="reserve">/jsp/reserve.jsp</result>
+        </action>
+        <action name="saveOrder" class="action.ReserveAction" method="saveOrder">
+            <result name="save">/jsp/reserve.jsp</result>
+        </action>
+
+        <!--InstitutionInfoAction-->
+        <action name="instInfo" class="action.InstitutionInfoAction" method="institutionInfo">
+            <result name="instInfo">/jsp/institutionInfo.jsp</result>
+        </action>
+
+        <action name="instModify" class="action.InstitutionInfoAction" method="modifyInfo">
+            <result name="modify">/jsp/main.jsp</result>
+        </action>
+
+        <!--PlanAction-->
+        <action name="instCourse" class="action.PlanAction" method="getCourses">
+            <result name="courses">/jsp/courseList.jsp</result>
+        </action>
+
+        <action name="addPlan" class="action.PlanAction" method="addPlan">
+            <result name="plan" type="redirectAction">instCourse.action</result>
+        </action>
+
+        <!--AttendanceAction-->
+        <action name="courseInfo" class="action.AttendanceAction" method="getInfo">
+            <result name="classInfo">/jsp/attendance.jsp</result>
+        </action>
+
+        <action name="refreshInfo" class="action.AttendanceAction" method="refreshInfo">
+            <result name="refresh">/jsp/attendance.jsp</result>
+        </action>
+
+        <action name="absence" class="action.AttendanceAction" method="absence">
+            <result name="absence" type="redirectAction">refreshInfo.action</result>
+        </action>
+
+        <!--institutionOrderAction-->
+        <action name="instOrder" class="action.InstitutionOrderAction" method="orders">
+            <result name="orders">/jsp/institutionOrder.jsp</result>
+        </action>
+
+        <!--CollegeInfoAction-->
+        <action name="managerSta" class="action.CollegeInfoAction" method="managerSta">
+            <result name="managerSta">/jsp/managerSta.jsp</result>
+        </action>
+
+        <!--ManagerOrderAction-->
+        <action name="managerOrder" class="action.ManagerOrderAction" method="managerOrder">
+            <result name="orders">/jsp/managerOrder.jsp</result>
+        </action>
+
+        <action name="settle" class="action.ManagerOrderAction" method="settle">
+            <result name="settle" type="redirectAction">managerOrder.action</result>
+        </action>
+
+        <!--ApprovalAction-->
+        <action name="approval_*" class="action.ApprovalAction" method="{1}">
+            <result name="approvals">jsp/approval.jsp</result>
+            <result name="approve" type="redirectAction">approval_approval.action</result>
+        </action>
+
+    </package>
+</struts>
